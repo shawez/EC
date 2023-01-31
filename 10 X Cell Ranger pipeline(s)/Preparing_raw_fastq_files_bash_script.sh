@@ -1,8 +1,6 @@
 #!/bin/bash
-
 # Bash script to convert base call files (BCLs) for each flow cell directory into FASTQ files. 
-
-# Important Arguments
+## Important Arguments
 # --id: Required. A unique run ID string (e.g., Sample1_Fastq).
 # --run: Required. The path of Illumina BCL run folder.
 # --csv	Optional. Path to a simple CSV with lane, sample, and index columns, which describe the way to demultiplex the flow cell. The index 
