@@ -1,5 +1,5 @@
 # Functional-heterogeneity
-This repository contains the R scripts to reproduce analyses in our paper on the functional heterogeneity of tumor-infiltrating lymphocytes (TILs). 
+R scripts to reproduce analyses in our paper on the functional heterogeneity of tumor-infiltrating lymphocytes (TILs).  
 ## Contact
 Please contact us:
 
