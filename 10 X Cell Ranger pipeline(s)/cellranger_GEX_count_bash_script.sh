@@ -17,5 +17,5 @@
 
 cellranger count --id=Sample1_GEX_outPut \
                    --transcriptome=/opt/refdata-cellranger-GRCh38-3.0.0 \
-                   --fastqs=/Functional_Heterogeneity/Sample1_Fastq \
+                   --fastqs=/Functional_Heterogeneity/GEX/Sample1_Fastq \
                    --sample=Sample1_Fastq \
