@@ -1,6 +1,6 @@
 # Functional-heterogeneity
 Scripts to reproduce analyses in our paper on the functional heterogeneity of tumor-infiltrating lymphocytes (TILs).  
-
+This repository contains R and shell scripts to reproduce the analyses and figures in our paper on the functional heterogeneity of tumor-infiltrating lymphocytes (TILs) using public and in-house Single-cell RNA sequencing (scRNA-seq) data.
 
 ## Contact
 Please contact us:
