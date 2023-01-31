@@ -18,7 +18,7 @@
 # Run cellranger count to generate single cell feature counts.
 # Required. Sample name as specified in the sample sheet supplied to cellranger mkfastq.
 
-cellranger count --id=Sample1_Fastq_outPut \
+cellranger count --id=Sample1_Feature_Barcode_outPut \
                    --libraries=/Functional_Heterogeneity/Feature_Barcode/library.csv \
                    --transcriptome=/opt/refdata-cellranger-GRCh38-3.0.0 \
 		   --feature-ref=/Functional_Heterogeneity/Feature_Barcode/feature_ref.csv 
