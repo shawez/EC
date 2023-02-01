@@ -29,7 +29,6 @@ d_ms <- md1[idx1, ]
 
 # Subset count data only for T cells
 d_s <- cohortA[, d_ms$Cell]
-
 d_s <- as.data.frame(as.matrix(d_s))
 
 # Rename the metadata columns
@@ -44,14 +43,13 @@ d_ms$Treatment <- "Unknown"
 d_ms$Dataset <- "Bassez_2021_EGAS00001004809"
 
 d_ms <- d_ms[, c("Cell", "Patient", "Histology", "HistologySubType", "SampleTiming", "Treatment", "CellType", "Dataset")]
-
-#Preprocessing:  Basic cleaning:
 rownames(d_ms) <- d_ms$Cell
 d_ms <- d_ms[, -1]
 
 # Check
 identical(colnames(d_s), rownames(d_ms))
 
+############################ Preprocessing ###############################
 # Initialize the Seurat object with the raw (non-normalized data).
 seuratObject  <- CreateSeuratObject(counts= d_s, meta.data = d_ms, min.cells = 3, min.features = 200)
 
@@ -66,6 +64,14 @@ print(paste("Number of selected patients:", length(unique(seuratObject@meta.data
 
 # Normalize using Seurat function SCTransform with batch_var=Patient to regress out latent variables.
 allCell <- SCTransform(seuratObject, batch_var = "Patient", verbose = FALSE)
+
+# Dimensionality reduction
+allCell <- RunPCA(object = allCell, npcs = 20, verbose = FALSE)
+allCell <- RunTSNE(object = allCell, reduction = "pca",
+                   dims = 1:20, check_duplicates = FALSE)
+
+# Visualize dimensionality reduction results
+DimPlot(object = allCell, reduction = "tsne", group.by = "Patient")
 
 # Get normalized data and metadata
 d_s_norm <- as.data.frame(allCell@assays$SCT@data)
