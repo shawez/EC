@@ -1,0 +1,18 @@
+#Clean workspace
+rm(list = ls(envir = .GlobalEnv), envir = .GlobalEnv)
+
+# Libraries
+library(Seurat)
+library(data.table)
+library(dplyr)
+
+
+cohortA <- readRDS("E:/Analysis/Arianna/Functional heterogeneity/Public_Data/10X/Bassez_2021_EGAS00001004809/1863-counts_cells_cohort1.rds")
+dim(cohortA)
+
+md1 <- fread("E:/Analysis/Arianna/Functional heterogeneity/Public_Data/10X/Bassez_2021_EGAS00001004809/1872-BIOKEY_metaData_cohort1_web.csv", data.table = FALSE)
+dim(md1)
+
+# Check
+identical(colnames(cohortA), md1$Cell)
+unique(md1$cellType)
